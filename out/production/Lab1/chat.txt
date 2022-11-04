@@ -1,0 +1,11 @@
+M 0 Eurakarte
+M 1 Donut
+M 2 Miles_Prower
+1 0 Hey Nice One
+0 1 Yeah lol
+1 0 I'm sending this to bash.org =)
+2 0 Hello
+0 * Good morning =)
+1 * What's up?
+0 * Not much!
+2 * uhh, what did I miss yesterday?
