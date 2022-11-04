@@ -8,27 +8,49 @@ import java.util.Scanner;
 public class FileReader {
     private ArrayList<String> users = new ArrayList<String>();
     private ArrayList<String> messages = new ArrayList<String>();
+
+    /**
+     *
+     * @param path
+     * String containing the relative path to text file.
+     * @throws FileNotFoundException
+     * Throws FilexNotFoundException if it fails to open file.
+     */
     FileReader(String path) throws FileNotFoundException {
         try {
             Scanner s = new Scanner(new File(path));
+            String[] user = new String[3];
             while(s.hasNextLine()) {
-                String n1 = s.next();
-                if(n1.contains("M")) {
-                    String index = s.next();
-                    String user = s.nextLine();
-                    users.add(user.substring(1, user.length()));
-                }else{
-                    messages.add(n1 + s.nextLine());
-                }
+                    String n1 = s.nextLine();
+                    if(n1.matches("^M ([0-9]+) \\S+$")) {
+                        user = n1.split(" ");
+                        users.add(user[2]);
+                    }else if(n1.matches("^([0-9]+) ([0-9]+|\\*) .*+$")){
+                        messages.add(n1);
+                    }else{
+                        System.err.println("Wrong format in file: " + path);
+                    }
             }
         } catch (FileNotFoundException e) {
             throw e;
         }
     }
+
+    /**
+     * @return
+     * Returns a list of users including yourself.
+     */
     public ArrayList<String> getUsers(){
         return users;
     }
 
+    /**
+     *
+     * @param user
+     * The user to find an associated private chat with.
+     * @return
+     * Returns the chat with the given user.
+     */
     public String getPrivateChatWith(String user) {
         String chat = "";
         if(users.contains(user)) {
@@ -47,6 +69,11 @@ public class FileReader {
        }
        return null;
     }
+
+    /**
+     * @return
+     * Returns the public chat.
+     */
     public String getPublicChat(){
         String chat = "";
             for(String m : messages){

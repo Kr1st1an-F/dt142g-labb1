@@ -11,10 +11,13 @@ public class Main {
         Menu menu1 = new Menu();
         Panel p = new Panel();
 
-        FileReader f = new FileReader("src/chat.txt");
-        ArrayList<String> users = f.getUsers();
-        System.out.println(f.getPrivateChatWith(users.get(1)));
-        System.out.println(f.getPublicChat());
+        //Demo of using the FileReader class
+        //==================================================================
+        FileReader fileReader = new FileReader("src/chat.txt"); //Constructing object
+        ArrayList<String> users = fileReader.getUsers(); //Returns list of users
+        fileReader.getPrivateChatWith(users.get(2)); //Gets private chat with user in the list at index 2 as String
+        fileReader.getPublicChat(); //Gets the public chat as String
+        //==================================================================
 
         p.setLayout(new BorderLayout());
         p.add(button1);
