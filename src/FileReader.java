@@ -20,6 +20,7 @@ public class FileReader {
         try {
             Scanner s = new Scanner(new File(path));
             String[] user = new String[3];
+            int lineCounter = 1;
             while(s.hasNextLine()) {
                     String n1 = s.nextLine();
                     if(n1.matches("^M ([0-9]+) \\S+$")) {
@@ -28,11 +29,12 @@ public class FileReader {
                     }else if(n1.matches("^([0-9]+) ([0-9]+|\\*) .*+$")){
                         messages.add(n1);
                     }else{
-                        System.err.println("Wrong format in file: " + path);
+                        System.err.println("Wrong format on line " + lineCounter + " in file " + path);
                     }
+                    lineCounter++;
             }
         } catch (FileNotFoundException e) {
-            throw e;
+            System.err.println(e.getMessage());
         }
     }
 
