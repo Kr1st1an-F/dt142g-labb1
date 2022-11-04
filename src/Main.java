@@ -4,13 +4,13 @@ import java.awt.*;
 public class Main {
     public static void main(String[] args) {
         JFrame frame = new JFrame("Laboration1");
-        JPanel p = new ChatPanel();
-        p.setVisible(true);
+        ChatPanel p = new ChatPanel();
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(300,300);
+        frame.setSize(600,600);
 
-        frame.getContentPane().add(BorderLayout.EAST, p);
+        frame.add(p.getPanel());
         frame.setVisible(true);
+        frame.pack();
     }
 }

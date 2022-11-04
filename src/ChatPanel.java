@@ -1,7 +1,12 @@
 import javax.swing.*;
 
-public class ChatPanel extends JPanel {
+public class ChatPanel {
 	private JPanel panel1;
-	private JTextPane textPane1;
-	private JTextPane textPane2;
+	private JTextPane testTextPane;
+	private JTextPane testTextPane1;
+
+
+	public JPanel getPanel() {
+		return panel1;
+	}
 }
