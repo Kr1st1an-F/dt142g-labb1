@@ -2,8 +2,7 @@ import javax.swing.*;
 
 public class ChatPanel {
 	private JPanel panel1;
-	private JTextPane testTextPane;
-	private JTextPane testTextPane1;
+	private JTextPane textPane1;
 
 
 	public JPanel getPanel() {
