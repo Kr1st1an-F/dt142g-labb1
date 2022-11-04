@@ -21,6 +21,7 @@ public class Menu implements ActionListener {
         show.add(item3);
         menuBar.add(file);
         menuBar.add(show);
+        item2.setSelected(true);
     }
 
     @Override
