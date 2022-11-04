@@ -1,6 +1,10 @@
 # dt142g-labb1
 
 
+## Document Link
+https://docs.google.com/document/d/16ABqrqHjotc0VJXM5leLKwNpP2y5br3szvedNjQIz7E/edit?usp=sharing
+
+
 ## File system
 One file for database. (.txt) 
 
