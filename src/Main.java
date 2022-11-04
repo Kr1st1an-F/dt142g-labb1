@@ -4,11 +4,9 @@ import java.awt.*;
 public class Main {
     public static void main(String[] args) {
         JFrame frame = new JFrame("Laboration1");
-        JButton button1 = new JButton("Press!");
-        Panel p = new Panel();
+        JPanel p = new ChatPanel();
+        p.setVisible(true);
 
-        p.setLayout(new BorderLayout());
-        p.add(button1);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(300,300);
 
