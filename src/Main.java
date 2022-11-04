@@ -13,6 +13,7 @@ public class Main {
         FileReader f = new FileReader("src/chat.txt");
         ArrayList<String> users = f.getUsers();
         System.out.println(f.getPrivateChatWith(users.get(1)));
+        System.out.println(f.getPublicChat());
 
         p.setLayout(new BorderLayout());
         p.add(button1);

@@ -40,11 +40,20 @@ public class FileReader {
                     chat = chat + "<" + users.get(0) + "> " + m.substring(4, m.length()) + "\n";
                 }
             }
+            if(chat.isEmpty()) {
+                chat = "Not Found";
+            }
             return chat;
        }
        return null;
     }
     public String getPublicChat(){
-        return ":)";
+        String chat = "";
+            for(String m : messages){
+                if(m.charAt(2) == '*'){
+                    chat = chat + "<" + users.get((int)(m.charAt(0) - '0')) + "> " + m.substring(4, m.length()) + "\n";
+                }
+            }
+            return chat;
     }
 }
