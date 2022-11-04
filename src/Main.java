@@ -5,6 +5,7 @@ public class Main {
     public static void main(String[] args) {
         JFrame frame = new JFrame("Laboration1");
         JButton button1 = new JButton("Press!");
+        Menu menu1 = new Menu();
         Panel p = new Panel();
 
         p.setLayout(new BorderLayout());
@@ -13,6 +14,7 @@ public class Main {
         frame.setSize(300,300);
 
         frame.getContentPane().add(BorderLayout.EAST, p);
+        frame.setJMenuBar(menu1.menuBar);
         frame.setVisible(true);
     }
 }
