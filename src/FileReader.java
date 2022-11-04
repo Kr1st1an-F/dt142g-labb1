@@ -7,8 +7,7 @@ import java.util.Scanner;
 
 public class FileReader {
     private ArrayList<String> users = new ArrayList<String>();
-    private Map<String, Integer> userMap = new HashMap<String, Integer>();
-    private ArrayList<String> messages;
+    private ArrayList<String> messages = new ArrayList<String>();
     FileReader(String path) throws FileNotFoundException {
         try {
             Scanner s = new Scanner(new File(path));
@@ -17,8 +16,7 @@ public class FileReader {
                 if(n1.contains("M")) {
                     String index = s.next();
                     String user = s.nextLine();
-                    users.add(user);
-                    userMap.put(user, Integer.parseInt(index));
+                    users.add(user.substring(1, user.length()));
                 }else{
                     messages.add(n1 + s.nextLine());
                 }
@@ -32,10 +30,17 @@ public class FileReader {
     }
 
     public String getPrivateChatWith(String user) {
-       if(userMap.containsKey(user)) {
-            Integer id = userMap.get(user);
+        String chat = "";
+        if(users.contains(user)) {
+            int id = users.indexOf(user);
             for(String m : messages){
+                if(m.charAt(0) == (char)(id + '0') && m.charAt(2) == '0'){
+                    chat = chat + "<" + user + "> " + m.substring(4, m.length()) + "\n";
+                }else if(m.charAt(2) == (char)(id + '0') && m.charAt(0) == '0'){
+                    chat = chat + "<" + users.get(0) + "> " + m.substring(4, m.length()) + "\n";
+                }
             }
+            return chat;
        }
        return null;
     }

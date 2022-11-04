@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
@@ -10,7 +11,8 @@ public class Main {
         Panel p = new Panel();
 
         FileReader f = new FileReader("src/chat.txt");
-
+        ArrayList<String> users = f.getUsers();
+        System.out.println(f.getPrivateChatWith(users.get(1)));
 
         p.setLayout(new BorderLayout());
         p.add(button1);
